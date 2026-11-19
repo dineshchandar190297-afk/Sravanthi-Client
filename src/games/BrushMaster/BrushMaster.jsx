@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Star, Clock, Droplets } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './BrushMaster.css';
@@ -9,6 +9,7 @@ import './BrushMaster.css';
 const TOTAL_SPOTS = 15;
 
 export default function BrushMaster() {
+  const navigate = useNavigate();
   const [dirtySpots, setDirtySpots] = useState([]);
   const [particles, setParticles] = useState([]);
   const [timeLeft, setTimeLeft] = useState(30);
@@ -99,7 +100,6 @@ export default function BrushMaster() {
   return (
     <div className="brush-master-game" onPointerUp={() => setIsBrushing(false)} onPointerLeave={() => setIsBrushing(false)}>
       <header className="game-header">
-        <Link to="/games" className="back-btn"><ArrowLeft /> Back</Link>
         <div className="game-stats" style={{ gap: '16px', display: 'flex', alignItems: 'center' }}>
           <div className="cleanliness-meter">
             <Droplets size={16} color="var(--teal)" className="mr-2"/> 

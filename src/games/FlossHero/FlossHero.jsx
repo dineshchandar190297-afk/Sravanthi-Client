@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Star, Heart, Activity } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './FlossHero.css';
@@ -10,6 +10,7 @@ import './FlossHero.css';
 // When they hit the "floss zone" at the bottom, user presses Floss!
 
 export default function FlossHero() {
+  const navigate = useNavigate();
   const [score, setScore] = useState(0);
   const [combo, setCombo] = useState(0);
   const [lives, setLives] = useState(3);
@@ -137,7 +138,6 @@ export default function FlossHero() {
   return (
     <div className="floss-hero-game">
       <header className="game-header">
-        <Link to="/games" className="back-btn"><ArrowLeft /> Back</Link>
         <div className="game-stats">
           <div className="stat-badge bg-teal">LEVEL {currentLevel}</div>
           <div className="stat-badge bg-blue"><Star size={18} fill="#ff00ff" /> {score}/1000</div>
@@ -212,7 +212,7 @@ export default function FlossHero() {
             {gameState === 'won' ? (
               <>
                 <div className="result-emoji" style={{ fontSize: 80 }}>🎸</div>
-                <h2 style={{ fontSize: '2.5rem', margin: '10px 0', color: '#0ff', textTransform: 'uppercase', textShadow: '0 0 10px #0ff' }}>Floss Hero!</h2>
+                <h2 style={{ fontSize: '2.5rem', margin: '10px 0', color: '#0ff', textTransform: 'uppercase' }}>Floss Hero!</h2>
                 <p style={{ fontSize: '1.2rem', color: '#a0c0d0' }}>Perfect sync! The gaps are clean and glowing.</p>
                 <div className="final-score"><Star size={30} fill="#ff0"/> {score + (lives * 100)} FINAL SCORE</div>
                 <div className="rewards-badges mt-4 mb-4" style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 20, marginBottom: 20 }}>
@@ -223,7 +223,7 @@ export default function FlossHero() {
             ) : (
               <>
                 <div className="result-emoji" style={{ fontSize: 80 }}>💀</div>
-                <h2 style={{ fontSize: '2.5rem', margin: '10px 0', color: '#ff0055', textTransform: 'uppercase', textShadow: '0 0 10px #ff0055' }}>System Failure</h2>
+                <h2 style={{ fontSize: '2.5rem', margin: '10px 0', color: '#ff0055', textTransform: 'uppercase' }}>System Failure</h2>
                 <p style={{ fontSize: '1.2rem', color: '#a0c0d0' }}>Too much debris accumulated. Reboot and try again.</p>
               </>
             )}

@@ -14,7 +14,6 @@
 
 .game-title {
   color: #00ffff;
-  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
   font-weight: 800;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -154,7 +153,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  filter: drop-shadow(0 0 5px currentColor);
 }
 
 .brace-bracket {
@@ -170,7 +168,6 @@
   top: 10px;
   right: 15px;
   font-size: 24px;
-  filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
 }
 
 .sparkling::before, .sparkling::after {
@@ -178,7 +175,6 @@
   position: absolute;
   font-size: 30px;
   animation: sparkle-anim 2s infinite alternate;
-  filter: drop-shadow(0 0 10px #00ffff);
 }
 
 .sparkling::before { top: 20px; left: -20px; }
@@ -203,7 +199,6 @@
   letter-spacing: 2px;
   margin-bottom: 12px;
   font-family: monospace;
-  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
 }
 
 .options-row {
@@ -276,7 +271,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-shadow: 0 0 5px #00ffff;
   box-shadow: 0 0 15px rgba(0,255,255,0.2), inset 0 0 10px rgba(0,255,255,0.1);
   width: 100%;
 }
@@ -322,7 +316,6 @@
 }
 
 .result-emoji {
-  filter: drop-shadow(0 0 20px #00ffff);
   margin: 0 auto;
   display: inline-block;
 }
@@ -380,7 +373,6 @@
   gap: 0.5rem;
   font-size: 1.25rem;
   color: #f1c40f;
-  text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
 }
 
 @media (max-width: 900px) {

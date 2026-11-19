@@ -56,7 +56,6 @@
 
 .cyber-back-btn:hover {
   color: #fff;
-  text-shadow: 0 0 10px var(--cyber-magenta);
 }
 
 .cyber-stats {
@@ -118,7 +117,6 @@
 .text-cyan { color: var(--cyber-cyan); }
 .text-magenta { color: var(--cyber-magenta); }
 .glow-text {
-  text-shadow: 0 0 10px currentColor;
 }
 
 .ar-subtitle {
@@ -182,14 +180,12 @@
 
 .cyber-target-dummy-zoomed {
   font-size: 250px;
-  filter: drop-shadow(0 0 20px var(--cyber-cyan));
 }
 
 .ar-secret {
   position: absolute;
   font-size: 40px;
   transform: translate(-50%, -50%);
-  filter: drop-shadow(0 0 15px var(--cyber-cyan));
   transition: transform 0.3s, opacity 0.3s;
   z-index: 15;
 }
@@ -197,7 +193,6 @@
 .ar-secret.found {
   transform: translate(-50%, -50%) scale(1.5);
   animation: pulseSecret 1.5s infinite alternate;
-  filter: drop-shadow(0 0 20px var(--cyber-magenta));
 }
 
 @keyframes pulseSecret {

@@ -1,7 +1,6 @@
 .lunchbox-sorter-game {
   min-height: 100vh;
   background: var(--blue-bg);
-  padding-top: var(--nav-height);
   display: flex;
   flex-direction: column;
 }
@@ -86,7 +85,6 @@
 
 .boxed-food {
   font-size: 40px;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 
 @media (max-width: 600px) {

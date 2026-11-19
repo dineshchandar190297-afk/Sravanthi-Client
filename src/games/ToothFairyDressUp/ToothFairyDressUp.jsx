@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Star, Wand2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './ToothFairyDressUp.css';
@@ -25,6 +25,7 @@ const wardrobe = {
 };
 
 export default function ToothFairyDressUp() {
+  const navigate = useNavigate();
   const [wings, setWings] = useState(wardrobe.wings[0]);
   const [wand, setWand] = useState(wardrobe.wands[0]);
   const [crown, setCrown] = useState(wardrobe.crowns[0]);
@@ -49,7 +50,6 @@ export default function ToothFairyDressUp() {
   return (
     <div className="tooth-fairy-game">
       <header className="game-header">
-        <Link to="/games" className="back-btn"><ArrowLeft /> Back</Link>
       </header>
 
       <div className="container game-container text-center">

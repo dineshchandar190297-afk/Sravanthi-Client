@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Star, Zap } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './SugarBugRunner.css';
 
 export default function SugarBugRunner() {
+  const navigate = useNavigate();
   const [gameState, setGameState] = useState('intro');
   const [score, setScore] = useState(0);
   const [jumpState, setJumpState] = useState('ground');
@@ -136,7 +137,6 @@ export default function SugarBugRunner() {
   return (
     <div className="sugar-bug-runner-game">
       <header className="game-header">
-        <Link to="/games" className="back-btn"><ArrowLeft /> Back</Link>
         <div className="game-stats">
           <div className="stat-badge bg-teal">Level {currentLevel}</div>
           <div className="stat-badge bg-yellow"><Star size={16} fill="gold"/> {score}/{targetScore}</div>
@@ -147,7 +147,7 @@ export default function SugarBugRunner() {
       <div className="container game-container text-center">
         {gameState === 'intro' && (
           <motion.div className="intro-card card mt-12 glass" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="game-title" style={{ color: '#FF6B9D', textShadow: '0 0 10px rgba(255,107,157,0.5)' }}>Neon Sugar Bug Run ⚡</h1>
+            <h1 className="game-title" style={{ color: '#FF6B9D' }}>Neon Sugar Bug Run ⚡</h1>
             <p className="game-subtitle mb-8">Tap once to jump. Tap twice to DOUBLE JUMP over the glitchy neon bugs!</p>
             <button className="btn btn-primary btn-lg" onClick={startGame}>Initialize Run</button>
           </motion.div>

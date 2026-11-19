@@ -1,7 +1,6 @@
 .brave-patient-game {
   min-height: 100vh;
   background: radial-gradient(ellipse at top, #0d0d2b 0%, #000005 60%);
-  padding-top: var(--nav-height);
   display: flex;
   flex-direction: column;
   color: #e0f0ff;
@@ -50,11 +49,9 @@
 
 .brave-patient-game .back-btn {
   color: #00c8ff;
-  text-shadow: 0 0 8px #00c8ff;
   transition: all 0.3s;
 }
 .brave-patient-game .back-btn:hover {
-  text-shadow: 0 0 16px #00c8ff, 0 0 24px #00c8ff;
 }
 
 .brave-patient-game .stat-badge {
@@ -152,7 +149,6 @@
 /* Step Icons */
 .step-icon {
   font-size: 100px;
-  filter: drop-shadow(0 0 20px rgba(0, 200, 255, 0.6));
   display: inline-block;
   margin-bottom: 16px;
 }
@@ -186,7 +182,6 @@
   font-size: 14px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  text-shadow: 0 0 10px #00c8ff;
 }
 
 /* Win screen */
@@ -196,7 +191,6 @@
 
 .brave-patient-game .final-score {
   color: #ffd700;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,13 +202,11 @@
 
 .brave-patient-game h2 {
   color: #00c8ff;
-  text-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
 }
 
 .brave-patient-game .btn-outline {
   border: 2px solid #00c8ff;
   color: #00c8ff;
-  text-shadow: 0 0 5px #00c8ff;
   box-shadow: 0 0 15px rgba(0, 200, 255, 0.3), inset 0 0 10px rgba(0, 200, 255, 0.1);
   background: transparent;
   transition: all 0.3s;
@@ -229,7 +221,6 @@
   background: linear-gradient(45deg, rgba(0,200,255,0.3), rgba(167,139,250,0.3));
   border: 2px solid #00c8ff;
   color: #fff;
-  text-shadow: 0 0 5px #00c8ff;
   box-shadow: 0 0 20px rgba(0, 200, 255, 0.4);
   transition: all 0.3s;
   text-transform: uppercase;

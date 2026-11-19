@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Star, Camera } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useStore } from '../../store/useStore';
 import './ToothFairy.css';
 
@@ -25,6 +25,7 @@ const OPTIONS = {
 };
 
 export default function ToothFairy() {
+  const navigate = useNavigate();
   const [wings, setWings] = useState(OPTIONS.wings[0]);
   const [dress, setDress] = useState(OPTIONS.dress[0]);
   const [wand, setWand] = useState(OPTIONS.wand[0]);
@@ -42,7 +43,6 @@ export default function ToothFairy() {
   return (
     <div className="tooth-fairy-game">
       <header className="game-header">
-        <Link to="/games" className="back-btn"><ArrowLeft /> Back</Link>
       </header>
 
       <div className="container game-container text-center">
@@ -149,7 +149,6 @@ export default function ToothFairy() {
             
             <div className="mt-6">
               <button className="btn btn-outline mr-4" onClick={() => setGameState('playing')}>Design Another</button>
-              <Link to="/games" className="btn btn-primary">Back to Games</Link>
             </div>
           </motion.div>
         )}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Star, Zap, ShieldAlert, Crosshair } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './AnxietyBattle.css';
@@ -13,6 +13,7 @@ const monsters = [
 ];
 
 export default function AnxietyBattle() {
+  const navigate = useNavigate();
   const [currentMonsterIndex, setCurrentMonsterIndex] = useState(0);
   const [monsterHp, setMonsterHp] = useState(3);
   const [gameState, setGameState] = useState('intro'); // intro, playing, won
@@ -70,7 +71,6 @@ export default function AnxietyBattle() {
     <div className={`anxiety-battle-game ${flash ? 'screen-shake' : ''}`}>
       <div className="neon-grid"></div>
       <header className="game-header neon-header">
-        <Link to="/games" className="back-btn neon-btn"><ArrowLeft /> Back</Link>
         <div className="game-stats">
           <div className="stat-badge neon-badge" style={{ borderColor: '#00ffcc', color: '#00ffcc' }}>Level {currentLevel}</div>
           <div className="stat-badge neon-badge" style={{ borderColor: '#ff00ff', color: '#ff00ff' }}><ShieldAlert size={16}/> Targets: {monsters.length - currentMonsterIndex}</div>
@@ -80,8 +80,8 @@ export default function AnxietyBattle() {
       <div className="container game-container text-center">
         {gameState === 'intro' && (
           <motion.div className="intro-card glass-card mt-12" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="game-title neon-text">SYSTEM INFECTION ⚠️</h1>
-            <p className="game-subtitle mb-8 text-glow">Sometimes the digital realm is infected by fear. Eradicate the Glitchy Shadow Viruses using your neon arsenal!</p>
+            <h1 className="game-title">SYSTEM INFECTION ⚠️</h1>
+            <p className="game-subtitle mb-8">Sometimes the digital realm is infected by fear. Eradicate the Glitchy Shadow Viruses using your neon arsenal!</p>
             <button className="btn btn-primary btn-lg neon-btn-primary" onClick={() => setGameState('playing')}>INITIALIZE COMBAT</button>
           </motion.div>
         )}
@@ -98,7 +98,7 @@ export default function AnxietyBattle() {
                 className="monster-container"
               >
                 <div className="monster-info mb-6">
-                  <h3 className="neon-monster-name" style={{ color: monster.color, textShadow: `0 0 10px ${monster.color}, 0 0 20px ${monster.color}` }}>{monster.name}</h3>
+                  <h3 className="neon-monster-name" style={{ color: monster.color }}>{monster.name}</h3>
                   <div className="hp-bar-container mt-2">
                     <div className="hp-bar-bg neon-border">
                       <motion.div 
@@ -130,7 +130,7 @@ export default function AnxietyBattle() {
                     {damageText && (
                       <motion.div 
                         className="damage-text neon-damage"
-                        style={{ color: monster.color, textShadow: `0 0 10px ${monster.color}` }}
+                        style={{ color: monster.color }}
                         initial={{ opacity: 1, scale: 0.5, y: 0 }}
                         animate={{ opacity: 0, scale: 1.5, y: -50 }}
                         exit={{ opacity: 0 }}
@@ -142,10 +142,10 @@ export default function AnxietyBattle() {
                 </div>
 
                 <div className="actions mt-12">
-                  <p className="text-gray mb-4 font-bold text-glow">Target weakness identified!</p>
+                  <p className="text-gray mb-4 font-bold">Target weakness identified!</p>
                   <motion.button 
                     className="btn btn-primary btn-lg w-full neon-attack-btn"
-                    style={{ borderColor: monster.color, color: monster.color, textShadow: `0 0 5px ${monster.color}`, boxShadow: `inset 0 0 10px ${monster.color}, 0 0 10px ${monster.color}` }}
+                    style={{ borderColor: monster.color, color: monster.color, boxShadow: `inset 0 0 10px ${monster.color}, 0 0 10px ${monster.color}` }}
                     onClick={handleAttack}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -159,10 +159,10 @@ export default function AnxietyBattle() {
 
         {gameState === 'won' && (
           <motion.div className="game-over glass-card text-center mt-12" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}>
-            <div className="result-emoji bounce-in neon-text" style={{ fontSize: 80, filter: 'drop-shadow(0 0 20px #00ffcc)' }}>🛡️</div>
+            <div className="result-emoji bounce-in" style={{ fontSize: 80, filter: 'drop-shadow(0 0 20px #00ffcc)' }}>🛡️</div>
             <h2 className="neon-text" style={{ color: '#00ffcc' }}>SYSTEM PURGED!</h2>
             <p className="text-glow">You have eradicated the viruses and secured the network.</p>
-            <div className="final-score neon-text" style={{ color: '#ffff00', textShadow: '0 0 10px #ffff00' }}><Star size={24} fill="#ffff00"/> 500 Score</div>
+            <div className="final-score" style={{ color: '#ffff00' }}><Star size={24} fill="#ffff00"/> 500 Score</div>
               <div className="rewards-badges mt-4 mb-4" style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
                 <span className="badge neon-badge" style={{ fontSize: 18, borderColor: '#ffff00', color: '#ffff00' }}>🪙 +50 Crypto</span>
                 <span className="badge neon-badge" style={{ fontSize: 18, borderColor: '#ff00ff', color: '#ff00ff' }}>⭐ +20 XP</span>

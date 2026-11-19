@@ -1,12 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Star, Search, Skull } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './FindCavity.css';
 
 export default function FindCavity() {
+  const navigate = useNavigate();
   const [cavities, setCavities] = useState([]);
   const [foundCount, setFoundCount] = useState(0);
   const [gameState, setGameState] = useState('playing'); // playing, won
@@ -83,7 +84,6 @@ export default function FindCavity() {
   return (
     <div className="find-cavity-game">
       <header className="game-header">
-        <Link to="/games" className="back-btn"><ArrowLeft /> Back</Link>
         <div className="game-stats">
           <div className="stat-badge bg-teal">Level {currentLevel}</div>
           <div className="stat-badge bg-teal"><Search size={16}/> {foundCount} / {TOTAL_CAVITIES} Bugs Found</div>

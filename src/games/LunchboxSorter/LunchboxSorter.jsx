@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Star } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './LunchboxSorter.css';
@@ -18,6 +18,7 @@ const ALL_FOODS = [
 ];
 
 export default function LunchboxSorter() {
+  const navigate = useNavigate();
   const [foods, setFoods] = useState([]);
   const [healthyBox, setHealthyBox] = useState([]);
   const [treatBox, setTreatBox] = useState([]);
@@ -89,7 +90,6 @@ export default function LunchboxSorter() {
   return (
     <div className="lunchbox-sorter-game">
       <header className="game-header">
-        <Link to="/games" className="back-btn"><ArrowLeft /> Back</Link>
         <div className="game-stats">
           <div className="stat-badge bg-teal">Level {currentLevel}</div>
           <div className="stat-badge"><Star size={16} fill="gold"/> {score}</div>

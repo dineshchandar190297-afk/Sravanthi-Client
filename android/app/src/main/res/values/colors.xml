@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Web Colors -->
+    <color name="colorPrimary">#4ECDC4</color>
+    <color name="colorPrimaryDark">#3ab5ac</color>
+    <color name="colorAccent">#FF6B9D</color>
+    
+    <color name="colorBackground">#EBF8FF</color>
+    <color name="colorText">#1A202C</color>
+    <color name="colorTextHint">#718096</color>
+    
+    <color name="yellow">#FFE66D</color>
+    <color name="yellow_dark">#f5d84e</color>
+    <color name="pink_light">#ffd6e7</color>
+    <color name="baby_blue">#A8D8EA</color>
+    <color name="mint">#95E1D3</color>
+    <color name="coral">#F38181</color>
+    <color name="purple">#C9B8FF</color>
+    <color name="purple_dark">#9B8BE8</color>
+    
+    <!-- Portal Specific Colors -->
+    <color name="colorCardChild">#EBF8FF</color>
+    <color name="colorCardParent">#F9FEFE</color>
+    <color name="colorCardDentist">#EDF2F7</color>
+    
+    <!-- Utility Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#EDF2F7</color>
+    <color name="red">#FF6B9D</color>
+    <color name="green">#4ECDC4</color>
+</resources>

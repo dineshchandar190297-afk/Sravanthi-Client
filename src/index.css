@@ -255,34 +255,38 @@ button {
 
 .game-header {
   position: fixed;
-  top: var(--nav-height); left: 0; right: 0;
-  height: calc(var(--nav-height) - 10px);
+  top: 0; left: 0; right: 0;
+  height: 56px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 24px;
-  background: rgba(255,255,255,0.9);
+  justify-content: center;
+  padding: 0 16px;
+  background: rgba(255,255,255,0.95);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--gray-200);
   z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .game-container {
   width: 100%;
-  padding-top: calc(var(--nav-height) * 2);
+  padding-top: 72px;
   padding-bottom: 40px;
   flex: 1;
 }
 
 .game-title {
-  font-size: 36px;
+  font-size: 28px;
   color: var(--dark);
+  text-shadow: none;
+  font-weight: 800;
 }
 
 .game-subtitle {
-  font-size: 18px;
+  font-size: 16px;
   color: var(--gray-600);
   margin-top: 8px;
+  text-shadow: none;
 }
 
 .back-btn {
@@ -302,18 +306,22 @@ button {
 .game-stats {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .stat-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
+  gap: 5px;
+  padding: 5px 12px;
   background: var(--gray-100);
   border-radius: var(--radius-full);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
+  color: var(--dark);
+  text-shadow: none;
 }
 
 .stat-badge.bg-pink { background: var(--pink); color: white; }

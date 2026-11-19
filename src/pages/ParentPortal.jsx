@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
 import { Bell, Heart, Shield, Award, Star, CheckCircle } from 'lucide-react';
 import { useStore } from '../store/useStore';
+import { API_BASE } from '../config/api.js';
 import './ParentPortal.css';
 
 const anxietyData = [
@@ -32,7 +33,7 @@ export default function ParentPortal() {
     setSubmitting(true);
     setReviewError('');
     try {
-      const res = await fetch('/api/reviews', {
+      const res = await fetch(`${API_BASE}/api/reviews`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

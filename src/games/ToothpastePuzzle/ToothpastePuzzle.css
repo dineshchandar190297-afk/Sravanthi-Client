@@ -1,7 +1,6 @@
 .toothpaste-puzzle-game {
   min-height: 100vh;
   background: var(--blue-bg);
-  padding-top: var(--nav-height);
   display: flex;
   flex-direction: column;
 }

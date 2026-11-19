@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Star } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './ShapeMatcher.css';
@@ -14,6 +14,7 @@ const shapes = [
 ];
 
 export default function ShapeMatcher() {
+  const navigate = useNavigate();
   const [availableItems, setAvailableItems] = useState([]);
   const [targetSilhouettes, setTargetSilhouettes] = useState([]);
   const [matchedIds, setMatchedIds] = useState([]);
@@ -79,7 +80,6 @@ export default function ShapeMatcher() {
   return (
     <div className="shape-matcher-game">
       <header className="game-header">
-        <Link to="/games" className="back-btn"><ArrowLeft /> Back</Link>
         <div className="game-stats">
           <div className="stat-badge bg-teal">Level {currentLevel}</div>
           <div className="stat-badge"><Star size={16} fill="gold"/> {score}</div>

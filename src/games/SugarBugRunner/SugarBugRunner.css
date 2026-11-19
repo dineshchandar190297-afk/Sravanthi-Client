@@ -1,7 +1,6 @@
 .sugar-bug-runner-game {
   min-height: 100vh;
   background: var(--dark);
-  padding-top: var(--nav-height);
   display: flex;
   flex-direction: column;
 }
@@ -111,7 +110,6 @@
   bottom: 80px;
   z-index: 5;
   font-size: 40px;
-  filter: drop-shadow(0 0 20px #e74c3c);
   animation: wobble 0.5s infinite alternate;
 }
 
@@ -125,7 +123,6 @@
   position: absolute;
   z-index: 5;
   font-size: 40px;
-  filter: drop-shadow(0 0 20px var(--yellow));
   animation: spinGlow 2s linear infinite;
 }
 
@@ -156,7 +153,6 @@
   color: var(--white);
   font-weight: 900;
   font-size: 24px;
-  text-shadow: 0 0 10px var(--pink);
   pointer-events: none;
   animation: flash 1s infinite alternate;
   z-index: 20;

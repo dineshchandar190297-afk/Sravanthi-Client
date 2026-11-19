@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Shield, Heart } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './ToothDefender.css';
 
 export default function ToothDefender() {
+  const navigate = useNavigate();
   const [score, setScore] = useState(0);
   const [lives, setLives] = useState(3);
   const [monsters, setMonsters] = useState([]);
@@ -88,7 +89,6 @@ export default function ToothDefender() {
   return (
     <div className={`tooth-defender-game ${shake ? 'screen-shake' : ''}`}>
       <header className="game-header">
-        <Link to="/games" className="back-btn"><ArrowLeft /> Back</Link>
         <div className="game-stats">
           <div className="stat-badge bg-teal">Level {currentLevel}</div>
           <div className="stat-badge bg-blue"><Shield size={16}/> {score}/{targetScore}</div>

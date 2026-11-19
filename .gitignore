@@ -25,3 +25,10 @@ dist-ssr
 
 .env
 server/.env
+
+# Signing keys & release builds (never commit)
+pass key
+*.jks
+*.keystore
+*.p12
+android/app/release/

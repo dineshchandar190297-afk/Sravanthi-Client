@@ -6,7 +6,6 @@
                     radial-gradient(circle at 10% 80%, white 1.5px, transparent 2px),
                     radial-gradient(circle at 90% 10%, white 1.5px, transparent 2px);
   background-size: 100px 100px;
-  padding-top: var(--nav-height);
   display: flex;
   flex-direction: column;
 }
@@ -48,7 +47,6 @@
   font-size: 140px;
   z-index: 0;
   opacity: 0.8;
-  filter: drop-shadow(0 0 10px rgba(255,255,255,0.8));
 }
 
 .f-head {
@@ -91,7 +89,6 @@
 .wand-top {
   font-size: 40px;
   z-index: 2;
-  filter: drop-shadow(0 0 10px rgba(255, 230, 109, 0.8));
 }
 
 /* Controls */

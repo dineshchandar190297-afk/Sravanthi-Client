@@ -1,7 +1,6 @@
 .dentist-assistant-game {
   min-height: 100vh;
   background: var(--blue-bg);
-  padding-top: var(--nav-height);
   display: flex;
   flex-direction: column;
 }
@@ -104,7 +103,6 @@
 
 .slotted-item {
   font-size: 60px;
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
 }
 
 .slot-hint {

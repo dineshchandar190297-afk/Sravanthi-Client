@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
+    android:padding="20dp">
+
+    <!-- Top Bar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_revert"
+            android:contentDescription="Back"
+            android:tint="@color/colorText" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/btnBack"
+            android:layout_marginStart="12dp"
+            android:text="Parent Dashboard 👨‍👩‍👦"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Stats Panel -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Child Statistics Card (Clinical progress metrics) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Clinical Summary"
+                        android:textColor="@color/colorText"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Anxiety Score -->
+                    <TextView
+                        android:id="@+id/tvAnxietyLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Anxiety Level: 50%"
+                        android:textColor="@color/colorText"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="6dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbAnxiety"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="12dp"
+                        android:progress="50"
+                        android:max="100"
+                        android:progressTint="@color/colorAccent"
+                        android:progressBackgroundTint="@color/grey"
+                        android:layout_marginBottom="18dp" />
+
+                    <!-- Readiness Score -->
+                    <TextView
+                        android:id="@+id/tvReadinessLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Readiness Level: 50%"
+                        android:textColor="@color/colorText"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="6dp" />
+
+                    <ProgressBar
+                        android:id="@+id/pbReadiness"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="12dp"
+                        android:progress="50"
+                        android:max="100"
+                        android:progressTint="@color/colorPrimary"
+                        android:progressBackgroundTint="@color/grey" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Games Progression -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Adventure Progress"
+                        android:textColor="@color/colorText"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
+
+                    <TextView
+                        android:id="@+id/tvGamesCompleted"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Games Completed: None"
+                        android:textColor="@color/colorText"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:id="@+id/tvCoinsEarned"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Coins Earned: 0"
+                        android:textColor="@color/colorText"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Tips Card styled in Green-Teal Gradient matching the website -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/grad_green"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="💡 Dentist Tips for Parents"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="10dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1. Monitor your child to brush for at least 2 minutes twice a day.\n2. Limit sugary snacks to help reduce sugar bug attacks.\n3. Make sure to visit a pediatric dentist every 6 months for a clean, sparkling smile!"
+                        android:textColor="@color/white"
+                        android:alpha="0.95"
+                        android:textSize="13sp"
+                        android:lineSpacingExtra="4dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

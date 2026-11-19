@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
+import { App as CapApp } from '@capacitor/app';
 import Navbar from './components/Navbar';
 import Landing from './pages/Landing';
 import ChildPortal from './pages/ChildPortal';
@@ -33,15 +34,35 @@ import ToothFairyDressUp from './games/ToothFairyDressUp/ToothFairyDressUp';
 import { useStore } from './store/useStore';
 import './index.css';
 
-export default function App() {
+// Inner component so it can use router hooks
+function AppContent() {
   const fetchProgress = useStore(state => state.fetchProgress);
   const userId = useStore(state => state.userId);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (userId) {
       fetchProgress();
     }
   }, [userId, fetchProgress]);
+
+  // Android hardware back button handler
+  useEffect(() => {
+    const handleBackButton = CapApp.addListener('backButton', () => {
+      // Root/home paths — minimize app instead of going further back
+      const rootPaths = ['/', '/child', '/login'];
+      if (rootPaths.includes(location.pathname)) {
+        CapApp.minimizeApp();
+      } else {
+        navigate(-1);
+      }
+    });
+    return () => {
+      handleBackButton.then(h => h.remove());
+    };
+  }, [navigate, location.pathname]);
+
 
   const ProtectedRoute = ({ children }) => {
     if (!userId) {
@@ -51,7 +72,7 @@ export default function App() {
   };
 
   return (
-    <Router>
+    <>
       <Navbar />
       <Routes>
         <Route path="/"             element={userId ? <ChildPortal /> : <Landing />} />
@@ -84,6 +105,14 @@ export default function App() {
         <Route path="/game/tooth-fairy" element={<ProtectedRoute><ToothFairyDressUp /></ProtectedRoute>} />
         <Route path="/game/graduation-day" element={<ProtectedRoute><GraduationDay /></ProtectedRoute>} />
       </Routes>
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

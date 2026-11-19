@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Star, Heart, Droplets, Zap } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './VirtualPetTooth.css';
 
 export default function VirtualPetTooth() {
+  const navigate = useNavigate();
   const [stats, setStats] = useState({
     happiness: 50,
     cleanliness: 50,
@@ -98,7 +99,6 @@ export default function VirtualPetTooth() {
   return (
     <div className="virtual-pet-game">
       <header className="game-header">
-        <Link to="/games" className="back-btn"><ArrowLeft /> Back</Link>
         <div className="game-stats">
           <div className="stat-badge bg-teal">Level {currentLevel}</div>
           <div className="stat-badge bg-pink"><Heart size={16}/> {stats.happiness}%</div>

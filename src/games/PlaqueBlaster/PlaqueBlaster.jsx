@@ -1,12 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Star, Zap } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './PlaqueBlaster.css';
 
 export default function PlaqueBlaster() {
+  const navigate = useNavigate();
   const [plaqueSpots, setPlaqueSpots] = useState([]);
   const [particles, setParticles] = useState([]);
   const [isSpraying, setIsSpraying] = useState(false);
@@ -84,7 +85,6 @@ export default function PlaqueBlaster() {
   return (
     <div className="plaque-blaster-game" onPointerUp={handlePointerUp} onPointerLeave={handlePointerUp}>
       <header className="game-header">
-        <Link to="/games" className="back-btn"><ArrowLeft /> Back</Link>
         <div className="game-stats">
           <div className="stat-badge bg-teal">Level {currentLevel}</div>
           <div className="stat-badge bg-purple"><Zap size={16}/> Plasma Ready</div>
@@ -136,7 +136,7 @@ export default function PlaqueBlaster() {
             </div>
           ) : (
             <motion.div className="game-over text-center py-12 text-light" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
-              <div className="result-emoji bounce-in neon-text" style={{ fontSize: 80 }}>🌌</div>
+              <div className="result-emoji bounce-in" style={{ fontSize: 80 }}>🌌</div>
               <h2 className="neon-text">Alien Threat Neutralized!</h2>
               <p>You vaporized all the alien plaque. Incredible firepower!</p>
               <div className="final-score"><Star size={24} fill="#00ffcc" color="#00ffcc"/> 300 Score</div>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Star, BookOpen, Cpu } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './DentalAdventure.css';
@@ -74,6 +74,7 @@ const storyData = {
 };
 
 export default function DentalAdventure() {
+  const navigate = useNavigate();
   const [currentNodeId, setCurrentNodeId] = useState('start');
   const [history, setHistory] = useState([]);
   const [direction, setDirection] = useState(1);
@@ -142,7 +143,7 @@ export default function DentalAdventure() {
 
       <div className="container game-container text-center relative z-10">
         <div className="mb-8 text-white">
-          <h1 className="game-title neon-text">Holo-Deck Dental Sim</h1>
+          <h1 className="game-title">Holo-Deck Dental Sim</h1>
           <p className="game-subtitle cyber-subtext">Navigate the digital clinic protocols</p>
         </div>
 
@@ -183,7 +184,7 @@ export default function DentalAdventure() {
                   transition={{ delay: 0.5 }}
                   className="mt-8"
                 >
-                  <div className="final-score neon-text mb-6">
+                  <div className="final-score mb-6">
                     <Star size={28} className="text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.8)]"/> 
                     <span className="ml-2">100 XP SECURED</span>
                   </div>

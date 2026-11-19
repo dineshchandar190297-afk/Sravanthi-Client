@@ -1,7 +1,6 @@
 .anxiety-battle-game {
   min-height: 100vh;
   background: #050510;
-  padding-top: var(--nav-height);
   display: flex;
   flex-direction: column;
   transition: background-color 0.1s;
@@ -78,13 +77,11 @@
 
 .neon-text {
   color: #fff;
-  text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
   font-family: 'Courier New', Courier, monospace;
 }
 
 .text-glow {
   color: #ccc;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 .neon-btn-primary {

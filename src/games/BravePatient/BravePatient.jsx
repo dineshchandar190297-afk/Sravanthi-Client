@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Star, Heart, Wind } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './BravePatient.css';
@@ -9,6 +9,7 @@ import './BravePatient.css';
 const BREATH_DURATION = 4; // seconds to breathe in/out
 
 export default function BravePatient() {
+  const navigate = useNavigate();
   const [phase, setPhase] = useState('intro'); // intro, breathing, checkup, won
   const [breathState, setBreathState] = useState('inhale'); // inhale, hold, exhale
   const [breathCount, setBreathCount] = useState(0);
@@ -81,7 +82,6 @@ export default function BravePatient() {
   return (
     <div className="brave-patient-game">
       <header className="game-header">
-        <Link to="/games" className="back-btn"><ArrowLeft /> Back</Link>
         <div className="game-stats">
           <div className="stat-badge bg-teal">Level {currentLevel}</div>
           <div className="stat-badge"><Heart size={16} fill="var(--pink)" color="var(--pink)"/> Calmness: {Math.min(100, breathCount * 33)}%</div>

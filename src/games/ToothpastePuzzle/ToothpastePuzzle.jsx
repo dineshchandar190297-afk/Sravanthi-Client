@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Star, RotateCcw } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './ToothpastePuzzle.css';
@@ -11,6 +11,7 @@ const GRID_SIZE = 3;
 const TOTAL_TILES = GRID_SIZE * GRID_SIZE;
 
 export default function ToothpastePuzzle() {
+  const navigate = useNavigate();
   const [tiles, setTiles] = useState([]);
   const [isWon, setIsWon] = useState(false);
   const [moves, setMoves] = useState(0);
@@ -90,7 +91,6 @@ export default function ToothpastePuzzle() {
   return (
     <div className="toothpaste-puzzle-game">
       <header className="game-header">
-        <Link to="/games" className="back-btn"><ArrowLeft /> Back</Link>
         <div className="game-stats">
           <div className="stat-badge bg-teal">Level {currentLevel}</div>
           <div className="stat-badge bg-blue">Moves: {moves}</div>

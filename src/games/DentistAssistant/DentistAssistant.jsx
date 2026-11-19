@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Star, Clock } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './DentistAssistant.css';
@@ -15,6 +15,7 @@ const toolsList = [
 ];
 
 export default function DentistAssistant() {
+  const navigate = useNavigate();
   const [traySlots, setTraySlots] = useState([null, null, null]);
   const [score, setScore] = useState(0);
   const [gameState, setGameState] = useState('playing'); 
@@ -66,7 +67,6 @@ export default function DentistAssistant() {
   return (
     <div className="dentist-assistant-game">
       <header className="game-header">
-        <Link to="/games" className="back-btn"><ArrowLeft /> Back</Link>
         <div className="game-stats">
           <div className="stat-badge bg-teal">Level {currentLevel}</div>
           <div className="stat-badge"><Star size={16} fill="gold"/> {score}</div>

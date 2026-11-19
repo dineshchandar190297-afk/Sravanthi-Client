@@ -1,7 +1,6 @@
 .tooth-defender-game {
   min-height: 100vh;
   background: radial-gradient(circle at bottom, #1a1a2e 0%, #0f0f1a 100%);
-  padding-top: var(--nav-height);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -30,7 +29,6 @@
 .giant-tooth {
   font-size: 120px;
   z-index: 10;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
 }
 
 .tooth-shield-glow {
@@ -56,7 +54,6 @@
   border: none;
   cursor: crosshair;
   z-index: 20;
-  filter: drop-shadow(0 5px 10px rgba(255, 107, 157, 0.5));
   touch-action: none; /* Prevent default touch actions like scrolling when trying to tap */
 }
 
@@ -86,7 +83,6 @@
   font-weight: 900;
   font-size: 24px;
   color: white;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5), 0 0 10px var(--teal);
   pointer-events: none;
   z-index: 100;
 }
@@ -94,7 +90,6 @@
 .combat-text.combo-text {
   color: var(--yellow);
   font-size: 32px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5), 0 0 15px #f39c12;
 }
 
 .combo-badge {

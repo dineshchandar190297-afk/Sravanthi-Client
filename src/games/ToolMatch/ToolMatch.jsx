@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Star, Clock } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './ToolMatch.css';
@@ -15,6 +15,7 @@ const tools = [
 ];
 
 export default function ToolMatch() {
+  const navigate = useNavigate();
   const [availableTools, setAvailableTools] = useState([]);
   const [availableJobs, setAvailableJobs] = useState([]);
   const [matchedPairs, setMatchedPairs] = useState([]);
@@ -106,7 +107,6 @@ export default function ToolMatch() {
   return (
     <div className="tool-match-game">
       <header className="game-header">
-        <Link to="/games" className="back-btn"><ArrowLeft /> Back</Link>
         <div className="game-stats">
           <div className="stat-badge bg-teal">Level {currentLevel}</div>
           <div className="stat-badge"><Star size={16} fill="gold"/> {score}</div>

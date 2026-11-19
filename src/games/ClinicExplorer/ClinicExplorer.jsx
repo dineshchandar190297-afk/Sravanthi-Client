@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { ArrowLeft, Search, Star, ZoomIn } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './ClinicExplorer.css';
@@ -15,6 +15,7 @@ const rooms = [
 ];
 
 export default function ClinicExplorer() {
+  const navigate = useNavigate();
   const [discovered, setDiscovered] = useState([]);
   const [activeRoom, setActiveRoom] = useState(null);
   const containerRef = useRef(null);
@@ -64,7 +65,6 @@ export default function ClinicExplorer() {
   return (
     <div className="clinic-explorer-game" ref={containerRef}>
       <header className="game-header">
-        <Link to="/games" className="back-btn"><ArrowLeft /> Back</Link>
         <div className="game-stats">
           <div className="stat-badge bg-teal">Level {currentLevel}</div>
           <div className="stat-badge bg-blue"><Search size={16}/> {discovered.length} / {rooms.length} Found</div>

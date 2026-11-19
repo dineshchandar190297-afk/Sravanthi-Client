@@ -1,12 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Crosshair, Zap, Activity } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './MagicMirror.css';
 
 export default function MagicMirror() {
+  const navigate = useNavigate();
   const [gameState, setGameState] = useState('playing'); 
   const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
   const [foundItems, setFoundItems] = useState([]);
@@ -87,7 +88,6 @@ export default function MagicMirror() {
     <div className="ar-game-wrapper">
       <div className="cyber-grid"></div>
       <header className="ar-header">
-        <Link to="/games" className="cyber-back-btn"><ArrowLeft /> ABORT MISSION</Link>
         <div className="cyber-stats">
           <div className="cyber-badge cyan">SECTOR {currentLevel}</div>
           <div className="cyber-badge magenta"><Activity size={16} /> ANOMALIES: {foundItems.length} / {hiddenSecrets.length}</div>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, CheckCircle2, Star, Sparkles, ScanLine } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { useStore } from '../../store/useStore';
 import './SmileBuilder.css';
@@ -28,6 +28,7 @@ const styles = {
 };
 
 export default function SmileBuilder() {
+  const navigate = useNavigate();
   const [color, setColor] = useState(styles.colors[0]);
   const [braces, setBraces] = useState(styles.braces[0]);
   const [accessory, setAccessory] = useState(styles.accessories[0]);
@@ -47,7 +48,6 @@ export default function SmileBuilder() {
   return (
     <div className="smile-builder-game">
       <header className="game-header">
-        <Link to="/games" className="back-btn-holo"><ArrowLeft className="mr-2" /> Abort Mission</Link>
       </header>
 
       <div className="container game-container text-center" style={{ textAlign: 'center' }}>
@@ -178,7 +178,7 @@ export default function SmileBuilder() {
               ) : (
                 <motion.div key="done" className="text-center py-12" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} style={{ textAlign: 'center' }}>
                   <div className="result-emoji bounce-in" style={{ fontSize: 80 }}>📸</div>
-                  <h2 className="mb-4 text-3xl font-bold" style={{ color: '#00ffff', textShadow: '0 0 10px rgba(0,255,255,0.5)' }}>Scan Saved!</h2>
+                  <h2 className="mb-4 text-3xl font-bold" style={{ color: '#00ffff' }}>Scan Saved!</h2>
                   <p className="text-gray mb-8 text-lg">Subject has achieved an optimal aesthetic configuration.</p>
                   <div className="final-score mb-8 justify-center"><Star size={24} fill="#00ffff" color="#00ffff"/> Data Logged: 200XP</div>
                   <button className="btn-holo w-full" onClick={() => setGameState('building')}>Recalibrate</button>
